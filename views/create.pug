@@ -1,0 +1,19 @@
+doctype html
+html(lang='en')
+    head
+        title= title
+
+    body
+        h3= "Create New Note"
+        - var userId = userId
+        br
+        block creatnote
+            form(name="CreateNote", method='post', action='/createNote')
+                input(type="text" name="noteText" id="noteText" value="" required)
+                input(type="hidden" name="userId" id="userId" value="")
+                br 
+                button(type="submit" name="create" id="create") Create Note
+                br
+        a(href='/') 'Home'
+        br
+        a(href='/logout') 'Logout'  

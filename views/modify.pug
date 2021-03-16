@@ -1,0 +1,29 @@
+doctype html
+html(lang='en')
+    head
+        title= title
+
+    script.
+            function setAction(action){
+                document.getElementById("actionName").value= action;
+                return action;
+            }     
+
+    body
+        h3= "Displaying note with ID:" + mynote.note_id
+        br
+        block note
+            form(name="modifyNote", method='post', action='/modifyNote')
+                label(for="noteId") NoteID: #{mynote.note_id}
+                input(type="hidden" name='noteId' id="noteId" value=mynote.note_id)
+                br 
+                input(type="text" name="noteText" id="noteText" value=mynote.notes required)
+                br 
+                br
+                input(type="hidden" name='actionName' id='actionName' value="")
+                button(type="submit" name="Edit" id="Edit" onclick='setAction("Edit")') Edit
+                button(type="submit" name="Delete" id="Delete" onclick='setAction("Delete")') Delete
+                br
+        a(href='/') 'Home'
+        br
+        a(href='/logout') 'Logout'  

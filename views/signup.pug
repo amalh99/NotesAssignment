@@ -1,0 +1,25 @@
+doctype html
+html(lang='en')
+    head
+        title= title
+        style. 
+            h4 {padding:0; margin:0; text-align:center; color:red}
+
+    body
+        h3= "Please enter your information below:" 
+        h4= error
+        br
+        block signup
+            form(name="signup", method='post', action='/signup')
+                label(for="inputEmail") Email address 
+                input(type="email" name="username" id="inputEmail" placeholder="Email address" value="" required autofocus)
+                br 
+                label(for="inputPassword") Password 
+                input(type="password" name="password" id="password" placeholder="Password" value="" required)
+                br 
+                label(for="inputPassword") Confirm Password
+                input(type="password" name="confirmPassword" id="confirmPassword" placeholder="Please confirm your Password" value="" required)
+                br
+                button(type="submit" id="signup") Sign up
+                br
+        a(href='/') 'Home'

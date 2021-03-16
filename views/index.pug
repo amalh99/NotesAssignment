@@ -1,0 +1,23 @@
+doctype html
+html(lang='en')
+    head
+        title= title
+        style. 
+            h4 {padding:0; margin:0; text-align:left; color:red}
+
+    body
+        h1= "Welcome to Our Custom Notes Taking application" 
+        h4= error
+        br
+        block signin
+            form(name="signin", method='post', action='/')
+                label(for="inputEmail") Email address 
+                input(type="email" name="username" id="inputEmail" placeholder="Email address" value="" required autofocus)
+                br 
+                label(for="inputPassword") Password 
+                input(type="password" name="password" id="inputPassword" placeholder="Password" value="" required)
+                br 
+                button(type="submit" id="signin") Sign In
+                br
+        h7= "New users: " 
+        a(href='/Signup') Sign up 

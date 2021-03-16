@@ -1,0 +1,39 @@
+doctype html
+html(lang='en')
+    head
+        title= title
+        style. 
+            th {padding:0; margin: 0; text-align: center}
+
+        //- script.
+        //-     var editItem = function(id){
+        //-         console.log("got here: ", id);
+        //-         return id;
+        //-     } 
+    body
+        h1= 'My Notes Page'
+        block NoteList
+            //form(name="NoteList", method='post', action='/')
+            table.table.table-striped
+                thead
+                    tr
+                        th ID
+                        th Note
+                tbody
+                    each n in notes
+                        - var noteId = n.note_id
+                        tr
+                            td: a(href="/modifyNote?noteId="+noteId) #{n.note_id}
+                            //- td
+                            //-     button(onclick="editItem('#{id}')", title="Edit" name='Edit' value=id )
+                            //-         |  Edit
+                            td= n.notes
+                            //- td <input type="checkbox" name=${n.note_id} value="">
+                            //- td n.note_id
+                            //- td= n.notes
+        br
+        a(href='/') 'Home Page'   
+        br
+        a(href='/createNote') 'Create New Note'   
+        br
+        a(href='/logout') 'Logout'  
